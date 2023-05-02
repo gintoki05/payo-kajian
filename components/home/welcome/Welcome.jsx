@@ -2,24 +2,13 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './welcome.style';
 import WelcomeBanner from '../../common/banner/welcome/WelcomeBanner';
-import { useEffect, useState } from 'react';
-import { formatDate } from '../../../utils/date';
+import HeaderTitle from '../../common/header/HeaderTitle';
 
 const Welcome = () => {
-  const [date, setDate] = useState('');
-
-  useEffect(() => {
-    // Ambil tanggal sekarang
-    const now = formatDate(new Date().toISOString());
-    setDate(now);
-  }, []);
-
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.salam}>Assalamualaikum!</Text>
-        <Text style={styles.tanggal}>{date}</Text>
-
+        <HeaderTitle />
         <WelcomeBanner />
 
         <TouchableOpacity onPress={() => {}}>

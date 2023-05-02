@@ -4,7 +4,7 @@ import { COLORS, SIZES } from '../../../../constants';
 const styles = StyleSheet.create({
   container: {
     height: 135,
-    marginTop: SIZES.xLarge,
+    marginTop: SIZES.large,
     borderRadius: SIZES.large,
   },
   image: {

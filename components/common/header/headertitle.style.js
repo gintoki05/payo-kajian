@@ -3,11 +3,12 @@ import { COLORS, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.medium,
+    flex: 1,
   },
-  headerTitle: {
+  title: {
     color: COLORS.primary,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.xLarge,
     fontWeight: 'bold',
+    textAlign: 'left',
   },
 });
