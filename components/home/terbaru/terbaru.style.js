@@ -4,6 +4,8 @@ import { COLORS, FONT, SIZES } from '../../../constants';
 export const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
+    paddingBottom: SIZES.large,
+    paddingHorizontal: SIZES.large,
   },
   headerTitle: {
     color: COLORS.chineseBlack,

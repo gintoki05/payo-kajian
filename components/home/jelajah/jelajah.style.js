@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZES } from '../../../constants';
 export const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.medium,
+    paddingHorizontal: SIZES.large,
   },
   headerTitle: {
     fontFamily: FONT.bold,

@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     marginTop: SIZES.small,
     alignItems: 'flex-end',
+    paddingHorizontal: SIZES.large,
   },
   btnTitle: {
     fontFamily: FONT.medium,
