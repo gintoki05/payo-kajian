@@ -5,10 +5,22 @@ import { styles } from './jelajahcard.style';
 const JelajahCard = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.cardContainer}></View>
-      <View style={styles.cardContainer}></View>
-      <View style={styles.cardContainer}></View>
-      <View style={styles.cardContainer}></View>
+      <View>
+        <View style={styles.cardContainer}></View>
+        <Text style={styles.title}>Jadwal</Text>
+      </View>
+      <View>
+        <View style={styles.cardContainer}></View>
+        <Text style={styles.title}>Jadwal</Text>
+      </View>
+      <View>
+        <View style={styles.cardContainer}></View>
+        <Text style={styles.title}>Jadwal</Text>
+      </View>
+      <View>
+        <View style={styles.cardContainer}></View>
+        <Text style={styles.title}>Jadwal</Text>
+      </View>
     </View>
   );
 };

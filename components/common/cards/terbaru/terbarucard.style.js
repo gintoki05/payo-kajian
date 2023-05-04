@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS, SIZES } from '../../../../constants';
+import { COLORS, FONT, SIZES } from '../../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
   },
   cardContainer: {
     backgroundColor: 'white',
-    marginHorizontal: SIZES.small,
     height: 250,
     borderRadius: SIZES.medium,
   },
@@ -17,6 +16,7 @@ export const styles = StyleSheet.create({
     height: 150,
   },
   tanggalContainer: {
+    justifyContent: 'center',
     height: 55,
     width: 55,
     backgroundColor: 'white',
@@ -33,24 +33,30 @@ export const styles = StyleSheet.create({
   tanggal: {
     textAlign: 'center',
     fontSize: SIZES.xLarge,
-    fontWeight: 'bold',
+    color: COLORS.primary,
+    fontFamily: FONT.bold,
   },
   bulan: {
     textAlign: 'center',
+    fontFamily: FONT.regular,
   },
   infoContainer: {
     marginVertical: SIZES.xxLarge,
     marginHorizontal: SIZES.medium,
+    rowGap: 4,
   },
   judulKajian: {
+    color: COLORS.chineseBlack,
     textTransform: 'uppercase',
-    fontWeight: 'bold',
+    fontFamily: FONT.bold,
   },
   subTitle: {
-    color: COLORS.gray,
+    color: COLORS.mistBlue,
+    fontFamily: FONT.regular,
   },
   lokasi: {
-    color: COLORS.gray,
+    color: COLORS.mistBlue,
     fontSize: SIZES.small,
+    fontFamily: FONT.regular,
   },
 });

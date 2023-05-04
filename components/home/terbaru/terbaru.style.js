@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { COLORS, SIZES } from '../../../constants';
+import { COLORS, FONT, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.medium,
+    marginTop: SIZES.xLarge,
   },
   headerTitle: {
-    color: COLORS.primary,
-    fontSize: SIZES.medium,
-    fontWeight: 'bold',
+    color: COLORS.chineseBlack,
+    fontSize: SIZES.large,
+    fontFamily: FONT.bold,
   },
 });

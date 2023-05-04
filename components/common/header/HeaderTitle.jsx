@@ -3,6 +3,7 @@ import { styles } from './headertitle.style';
 
 import { useEffect, useState } from 'react';
 import { formatDate } from '../../../utils/date';
+import { COLORS } from '../../../constants';
 
 const HeaderTitle = () => {
   const [date, setDate] = useState('');
@@ -16,7 +17,7 @@ const HeaderTitle = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Assalamualaikum</Text>
-      <Text>{date}</Text>
+      <Text style={styles.date}>{date}</Text>
     </View>
   );
 };

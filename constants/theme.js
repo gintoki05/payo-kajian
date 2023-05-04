@@ -1,19 +1,24 @@
 const COLORS = {
-  primary: '#312651',
+  primary: '#37BD6B',
   secondary: '#444262',
   tertiary: '#FF7754',
 
   gray: '#83829A',
   gray2: '#C1C0C8',
 
+  paleOrange: '#FEAC56',
+  chineseBlack: '#171215',
+  mistBlue: '#6A6D7C',
+
   darkWhite: '#F3F4F8',
   lightWhite: '#FAFAFC',
 };
 
 const FONT = {
-  regular: 'DMRegular',
-  medium: 'DMMedium',
-  bold: 'DMBold',
+  regular: 'GilroyRegular',
+  medium: 'GilroyMedium',
+  semiBold: 'GilroySemiBold',
+  bold: 'GilroyBold',
 };
 
 const SIZES = {

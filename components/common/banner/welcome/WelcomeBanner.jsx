@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Image } from 'expo-image';
 
 import styles from './welcomebanner.style';

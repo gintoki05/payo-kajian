@@ -1,5 +1,5 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
-import { COLORS, SIZES } from '../../../constants';
+import { COLORS, FONT, SIZES } from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   btnTitle: {
+    fontFamily: FONT.medium,
     color: COLORS.primary,
   },
 });
