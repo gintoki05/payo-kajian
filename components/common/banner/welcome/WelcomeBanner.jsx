@@ -2,10 +2,17 @@ import { Pressable, View } from 'react-native';
 import { Image } from 'expo-image';
 
 import styles from './welcomebanner.style';
+import { useRouter } from 'expo-router';
 
 const WelcomeBanner = () => {
+  const router = useRouter();
+
   return (
-    <Pressable onPress={() => {}}>
+    <Pressable
+      onPress={() => {
+        router.push('/info/1');
+      }}
+    >
       <View style={styles.container}>
         <Image
           style={styles.image}

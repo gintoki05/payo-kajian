@@ -2,11 +2,18 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { Image } from 'expo-image';
 
 import styles from './info.style';
+import { useRouter } from 'expo-router';
 
 const Info = () => {
+  const router = useRouter();
+
   return (
     <ScrollView>
-      <Pressable onPress={() => {}}>
+      <Pressable
+        onPress={() => {
+          router.push('/info/1');
+        }}
+      >
         <View style={styles.container}>
           <Image
             style={styles.image}

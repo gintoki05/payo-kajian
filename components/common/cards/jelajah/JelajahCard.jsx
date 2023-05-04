@@ -11,7 +11,7 @@ const JelajahCard = () => {
       </View>
       <View>
         <View style={styles.cardContainer}></View>
-        <Text style={styles.title}>Jadwal</Text>
+        <Text style={styles.title}>Lokasi</Text>
       </View>
       <View>
         <View style={styles.cardContainer}></View>
