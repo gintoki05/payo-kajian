@@ -1,16 +1,13 @@
 import { Text, View } from 'react-native';
 import { styles } from './terbaru.style';
-import TerbaruCard from '../../common/cards/terbaru/TerbaruCard';
+import JadwalCard from '../../common/cards/jadwal/JadwalCard';
 
 const Terbaru = () => {
   return (
     <View>
       <View style={styles.container}>
         <Text style={styles.headerTitle}>Terbaru</Text>
-        <TerbaruCard />
-        <TerbaruCard />
-        <TerbaruCard />
-        <TerbaruCard />
+        <JadwalCard />
       </View>
     </View>
   );

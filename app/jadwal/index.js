@@ -3,15 +3,16 @@ import { COLORS, SIZES, icons } from '../../constants';
 import { Stack, useRouter } from 'expo-router';
 import Info from '../../components/info/Info';
 import Icon from '../../components/common/icon/Icon';
+import JadwalCard from '../../components/common/cards/jadwal/JadwalCard';
 
-const InfoAll = () => {
+const Jadwal = () => {
   const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
-          headerTitle: 'Info',
+          headerTitle: 'Jadwal Kajian',
           headerStyle: {
             backgroundColor: COLORS.lightWhite,
           },
@@ -30,13 +31,12 @@ const InfoAll = () => {
       <View
         style={{
           flex: 1,
-          padding: SIZES.large,
-          rowGap: SIZES.large,
+          padding: SIZES.medium,
         }}
       >
-        <Info />
+        <JadwalCard />
       </View>
     </SafeAreaView>
   );
 };
-export default InfoAll;
+export default Jadwal;

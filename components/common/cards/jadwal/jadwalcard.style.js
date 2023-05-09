@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZES } from '../../../../constants';
 
 export const styles = StyleSheet.create({
-  container: {
-    marginTop: SIZES.medium,
-  },
   cardContainer: {
     backgroundColor: 'white',
     height: 250,

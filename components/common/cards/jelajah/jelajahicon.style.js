@@ -8,14 +8,16 @@ export const styles = StyleSheet.create({
     marginTop: SIZES.medium,
   },
   cardContainer: {
-    backgroundColor: COLORS.gray2,
-    height: 60,
-    width: 60,
-    borderRadius: 90,
+    alignItems: 'center',
+  },
+  card: {
+    height: 50,
+    width: 50,
   },
   title: {
     marginTop: SIZES.xSmall,
     textAlign: 'center',
     fontFamily: FONT.semiBold,
+    justifyContent: 'space-between',
   },
 });

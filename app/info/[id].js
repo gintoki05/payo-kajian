@@ -1,9 +1,9 @@
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView, Text } from 'react-native';
-import ScreenHeaderBtn from '../../components/common/header/ScreenHeaderBtn';
 import { COLORS, SIZES, icons } from '../../constants';
 import InfoDetail from '../../components/info/detail/InfoDetail';
 import { View } from 'react-native';
+import Icon from '../../components/common/icon/Icon';
 
 const InfoDetails = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const InfoDetails = () => {
           headerShadowVisible: false,
           headerBackVisible: false,
           headerLeft: () => (
-            <ScreenHeaderBtn
+            <Icon
               iconUrl={icons.left}
               dimension='60%'
               handlePress={() => router.back()}

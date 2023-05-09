@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     marginTop: SIZES.xLarge,
     paddingBottom: SIZES.large,
     paddingHorizontal: SIZES.large,
+    rowGap: SIZES.large,
   },
   headerTitle: {
     color: COLORS.chineseBlack,
