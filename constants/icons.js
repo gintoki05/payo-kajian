@@ -5,6 +5,8 @@ import muslim from '../assets/icons/muslim.png';
 import quran from '../assets/icons/quran.png';
 import schedule from '../assets/icons/schedule.png';
 import place from '../assets/icons/place.png';
+import menu from '../assets/icons/menu.png';
+import hiring from '../assets/icons/hiring.png';
 
 export default {
   left,
@@ -14,4 +16,6 @@ export default {
   quran,
   schedule,
   place,
+  menu,
+  hiring,
 };

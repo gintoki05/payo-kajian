@@ -15,12 +15,22 @@ const Info = () => {
         }}
       >
         <View style={styles.container}>
-          <Image
-            style={styles.image}
-            source='https://picsum.photos/seed/696/3000/2000'
-            contentFit='cover'
-            transition={1000}
-          />
+          <View style={styles.cardContainer}>
+            <Image
+              style={styles.image}
+              source='https://picsum.photos/seed/696/3000/2000'
+              contentFit='cover'
+              transition={1000}
+            />
+          </View>
+          <View style={styles.cardContainer}>
+            <Image
+              style={styles.image}
+              source='https://picsum.photos/seed/696/3000/2000'
+              contentFit='cover'
+              transition={1000}
+            />
+          </View>
         </View>
       </Pressable>
     </ScrollView>

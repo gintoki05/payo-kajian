@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { Platform } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import { COLORS, FONT, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
@@ -9,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   iconContainer: {
     position: 'absolute',
-    top: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    top: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
     left: 10,
   },
   image: {

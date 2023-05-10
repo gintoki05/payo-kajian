@@ -20,22 +20,28 @@ const JelajahIcon = () => {
           <Text style={styles.title}>Jadwal</Text>
         </View>
       </Pressable>
-      <View style={styles.cardContainer}>
-        <Image source={icons.place} contentFit='fill' style={styles.card} />
-        <Text style={styles.title}>Lokasi</Text>
-      </View>
-      <View style={styles.cardContainer}>
-        <View style={styles.card}></View>
-        <Text style={styles.title}>Loker</Text>
-      </View>
+      <Pressable onPress={() => router.push('lokasi')}>
+        <View style={styles.cardContainer}>
+          <Image source={icons.place} contentFit='fill' style={styles.card} />
+          <Text style={styles.title}>Lokasi</Text>
+        </View>
+      </Pressable>
       <View style={styles.cardContainer}>
         <View style={styles.card}></View>
-        <Text style={styles.title}>Jadwal</Text>
+        <Text style={styles.title}>Umroh</Text>
       </View>
-      <View style={styles.cardContainer}>
-        <View style={styles.card}></View>
-        <Text style={styles.title}>Jadwal</Text>
-      </View>
+      <Pressable onPress={() => router.push('loker')}>
+        <View style={styles.cardContainer}>
+          <Image source={icons.hiring} contentFit='fill' style={styles.card} />
+          <Text style={styles.title}>Loker</Text>
+        </View>
+      </Pressable>
+      <Pressable onPress={() => router.push('lainnya')}>
+        <View style={styles.cardContainer}>
+          <Image source={icons.menu} contentFit='fill' style={styles.card} />
+          <Text style={styles.title}>Lainnya</Text>
+        </View>
+      </Pressable>
     </View>
   );
 };

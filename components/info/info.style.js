@@ -1,12 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { COLORS, SIZES } from '../../constants';
 import { Platform } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 
 const styles = StyleSheet.create({
   container: {
-    height: 135,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    flex: 1,
+    padding: SIZES.medium,
+    rowGap: SIZES.large,
+  },
+  cardContainer: {
+    backgroundColor: COLORS.gray,
+    width: '100%',
+    height: 100,
     borderRadius: SIZES.small,
   },
   image: {

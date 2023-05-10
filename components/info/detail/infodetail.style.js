@@ -1,10 +1,8 @@
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StatusBar, StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZES } from '../../../constants';
-import { StatusBar } from 'expo-status-bar';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     borderRadius: SIZES.small,
   },
   image: {

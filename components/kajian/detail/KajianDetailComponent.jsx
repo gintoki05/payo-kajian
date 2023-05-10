@@ -1,11 +1,11 @@
 import { Image } from 'expo-image';
 import { ScrollView, Text, View } from 'react-native';
-import { styles } from './kajiandetail.style';
+import { styles } from './kajiandetailcomponent.style';
 import { SIZES, icons } from '../../../constants';
 import Icon from '../../common/icon/Icon';
 import { useRouter } from 'expo-router';
 
-const KajianDetail = () => {
+const KajianDetailComponent = () => {
   const router = useRouter();
 
   return (
@@ -54,4 +54,4 @@ const KajianDetail = () => {
     </ScrollView>
   );
 };
-export default KajianDetail;
+export default KajianDetailComponent;
