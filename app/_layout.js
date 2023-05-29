@@ -21,7 +21,11 @@ const Layout = () => {
 
   if (!fontsLoaded) return null;
 
-  return <Stack onLayout={onLayoutRootView} />;
+  return (
+    <Stack onLayout={onLayoutRootView}>
+      {/* <Stack.Screen name='(tabs)' options={{ headerShown: false }} /> */}
+    </Stack>
+  );
 };
 
 export default Layout;

@@ -2,8 +2,8 @@ import { Image } from 'expo-image';
 import { ScrollView, Text, View } from 'react-native';
 import { styles } from './kajiandetailcomponent.style';
 import { SIZES, icons } from '../../../constants';
-import Icon from '../../common/icon/Icon';
 import { useRouter } from 'expo-router';
+import IconComponent from '../../common/icon/IconComponent';
 
 const KajianDetailComponent = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const KajianDetailComponent = () => {
           transition={1000}
         />
         <View style={styles.iconContainer}>
-          <Icon
+          <IconComponent
             iconUrl={icons.left}
             handlePress={() => router.back()}
             dimension='60%'
@@ -27,18 +27,18 @@ const KajianDetailComponent = () => {
         <View style={{ padding: SIZES.small }}>
           <Text style={styles.title}>Fikih Rumah Tangga</Text>
           <View style={styles.dateContainer}>
-            <Icon iconUrl={icons.calendar} dimension='60%' />
+            <IconComponent iconUrl={icons.calendar} dimension='60%' />
             <View style={{ rowGap: 4 }}>
               <Text style={styles.dateModeratorLocationTitle}>4 Mei 2023</Text>
               <Text style={styles.dateModeratorLocationTitle}>10.00 WIB</Text>
             </View>
           </View>
           <View style={styles.moderatorContainer}>
-            <Icon iconUrl={icons.muslim} dimension='60%' />
+            <IconComponent iconUrl={icons.muslim} dimension='60%' />
             <Text style={styles.dateModeratorLocationTitle}>Ustadz Fulan</Text>
           </View>
           <View style={styles.locationContainer}>
-            <Icon iconUrl={icons.compass} dimension='60%' />
+            <IconComponent iconUrl={icons.compass} dimension='60%' />
             <Text style={styles.dateModeratorLocationTitle}>
               Masjid Bakti, Jl Sukabakti, Palembang
             </Text>

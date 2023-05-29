@@ -1,17 +1,17 @@
-import { SafeAreaView, View } from 'react-native';
-import { COLORS, SIZES, icons } from '../../constants';
 import { Stack, useRouter } from 'expo-router';
-import Info from '../../components/info/Info';
+import { SafeAreaView, Text, View } from 'react-native';
 import IconComponent from '../../components/common/icon/IconComponent';
+import { COLORS, icons } from '../../constants';
+import PasarComponent from '../../components/pasar/PasarComponent';
 
-const InfoAll = () => {
+const Pasar = () => {
   const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
-          headerTitle: 'Info',
+          headerTitle: 'Pasar',
           headerStyle: {
             backgroundColor: COLORS.lightWhite,
           },
@@ -32,9 +32,9 @@ const InfoAll = () => {
           flex: 1,
         }}
       >
-        <Info />
+        <PasarComponent />
       </View>
     </SafeAreaView>
   );
 };
-export default InfoAll;
+export default Pasar;

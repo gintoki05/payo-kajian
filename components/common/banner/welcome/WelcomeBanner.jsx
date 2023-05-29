@@ -35,7 +35,7 @@ const WelcomeBanner = () => {
           style={styles.image}
           source={item.image}
           contentFit='cover'
-          transition={1000}
+          transition={2000}
         />
       </View>
     </Pressable>

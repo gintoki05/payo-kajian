@@ -1,10 +1,9 @@
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native';
-import { COLORS, SIZES, icons } from '../../constants';
-import InfoDetail from '../../components/info/detail/InfoDetail';
+import { COLORS, icons } from '../../constants';
 import { View } from 'react-native';
-import Icon from '../../components/common/icon/Icon';
 import LokasiDetailComponent from '../../components/lokasi/detail/LokasiDetailComponent';
+import IconComponent from '../../components/common/icon/IconComponent';
 
 const LokasiDetail = () => {
   const router = useRouter();
@@ -20,7 +19,7 @@ const LokasiDetail = () => {
           headerShadowVisible: false,
           headerBackVisible: false,
           headerLeft: () => (
-            <Icon
+            <IconComponent
               iconUrl={icons.left}
               dimension='60%'
               handlePress={() => router.back()}

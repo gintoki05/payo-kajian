@@ -7,6 +7,9 @@ import schedule from '../assets/icons/schedule.png';
 import place from '../assets/icons/place.png';
 import menu from '../assets/icons/menu.png';
 import hiring from '../assets/icons/hiring.png';
+import shopping from '../assets/icons/shopping-online.png';
+import kitab from '../assets/icons/kitab.png';
+import kaaba from '../assets/icons/kaaba.png';
 
 export default {
   left,
@@ -18,4 +21,7 @@ export default {
   place,
   menu,
   hiring,
+  shopping,
+  kitab,
+  kaaba,
 };

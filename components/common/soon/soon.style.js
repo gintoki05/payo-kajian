@@ -3,14 +3,10 @@ import { COLORS, FONT, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.small,
-    paddingBottom: SIZES.large,
-    paddingHorizontal: SIZES.large,
-    rowGap: SIZES.large,
+    padding: SIZES.medium,
   },
-  headerTitle: {
+  title: {
+    fontFamily: FONT.medium,
     color: COLORS.chineseBlack,
-    fontSize: SIZES.large,
-    fontFamily: FONT.bold,
   },
 });

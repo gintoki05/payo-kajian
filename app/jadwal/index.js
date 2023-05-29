@@ -1,9 +1,9 @@
 import { SafeAreaView, View } from 'react-native';
 import { COLORS, SIZES, icons } from '../../constants';
 import { Stack, useRouter } from 'expo-router';
-import Info from '../../components/info/Info';
-import Icon from '../../components/common/icon/Icon';
 import JadwalCard from '../../components/common/cards/jadwal/JadwalCard';
+import IconComponent from '../../components/common/icon/IconComponent';
+import Chip from '../../components/common/chip/Chip';
 
 const Jadwal = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const Jadwal = () => {
           headerShadowVisible: false,
           headerBackVisible: false,
           headerLeft: () => (
-            <Icon
+            <IconComponent
               iconUrl={icons.left}
               dimension='60%'
               handlePress={() => router.back()}
@@ -28,13 +28,15 @@ const Jadwal = () => {
         }}
       />
 
-      <View
-        style={{
-          flex: 1,
-          padding: SIZES.medium,
-        }}
-      >
-        <JadwalCard />
+      <View style={{ rowGap: 10 }}>
+        <Chip />
+        <View
+          style={{
+            padding: SIZES.medium,
+          }}
+        >
+          <JadwalCard />
+        </View>
       </View>
     </SafeAreaView>
   );

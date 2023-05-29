@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView, View } from 'react-native';
-import { COLORS, SIZES } from '../constants';
-import Welcome from '../components/home/welcome/Welcome';
-import Jelajah from '../components/home/jelajah/Jelajah';
-import Terbaru from '../components/home/terbaru/Terbaru';
+import { COLORS } from '../../constants/theme';
+import Welcome from '../../components/home/welcome/Welcome';
+import Jelajah from '../../components/home/jelajah/Jelajah';
+import Terbaru from '../../components/home/terbaru/Terbaru';
 
 const Home = () => {
   return (
@@ -29,12 +29,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-// Untuk tabs nanti, hapus seluruh kode diatas
-
-// import { Redirect } from 'expo-router';
-
-// const Index = () => {
-//   return <Redirect href='/home' />;
-// };
-// export default Index;

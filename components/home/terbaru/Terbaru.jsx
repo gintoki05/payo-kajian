@@ -8,6 +8,7 @@ const Terbaru = () => {
       <View style={styles.container}>
         <Text style={styles.headerTitle}>Terbaru</Text>
         <JadwalCard />
+        <JadwalCard />
       </View>
     </View>
   );

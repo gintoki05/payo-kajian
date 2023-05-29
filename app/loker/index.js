@@ -1,17 +1,17 @@
-import { SafeAreaView, View } from 'react-native';
-import { COLORS, SIZES, icons } from '../../constants';
 import { Stack, useRouter } from 'expo-router';
-import Info from '../../components/info/Info';
+import { SafeAreaView, Text, View } from 'react-native';
 import IconComponent from '../../components/common/icon/IconComponent';
+import { COLORS, icons } from '../../constants';
+import Soon from '../../components/common/soon/Soon';
 
-const InfoAll = () => {
+const Loker = () => {
   const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
-          headerTitle: 'Info',
+          headerTitle: 'Loker',
           headerStyle: {
             backgroundColor: COLORS.lightWhite,
           },
@@ -31,10 +31,8 @@ const InfoAll = () => {
         style={{
           flex: 1,
         }}
-      >
-        <Info />
-      </View>
+      ></View>
     </SafeAreaView>
   );
 };
-export default InfoAll;
+export default Loker;

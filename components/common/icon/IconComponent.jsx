@@ -1,10 +1,10 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import styles from './icon.style';
+import styles from './iconcomponent.style';
 import { Image } from 'expo-image';
 
-const Icon = ({ iconUrl, dimension, handlePress }) => {
+const IconComponent = ({ iconUrl, dimension, handlePress }) => {
   return (
     <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
       <Image
@@ -16,4 +16,4 @@ const Icon = ({ iconUrl, dimension, handlePress }) => {
   );
 };
 
-export default Icon;
+export default IconComponent;
