@@ -1,4 +1,11 @@
-import { FlatList, Pressable, ScrollView, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { Image } from 'expo-image';
 
 import styles from './info.style';
@@ -11,17 +18,17 @@ const Info = () => {
 
   const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
 
-  const Item = ({ image }) => (
+  const Item = ({ item }) => (
     <Pressable
       onPress={() => {
-        router.push('/info/1');
+        router.push(`info/${item.id}`);
       }}
     >
       <View style={styles.container}>
         <View style={styles.cardContainer}>
           <Image
             style={styles.image}
-            source={BASE_URL + image}
+            source={BASE_URL + item.attributes.gambar.data.attributes.url}
             contentFit='cover'
             transition={1000}
           />
@@ -31,13 +38,21 @@ const Info = () => {
   );
 
   return (
-    <FlatList
-      data={data}
-      renderItem={({ item }) => (
-        <Item image={item.attributes.gambar.data.attributes.url} />
+    <>
+      {isLoading ? (
+        <ActivityIndicator size={'large'} />
+      ) : error ? (
+        <Text>Ada masalah nih, coba lagi atau hubungi operator</Text>
+      ) : data.length === 0 ? (
+        <Text>Tidak ada data</Text>
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item) => item.id}
+        />
       )}
-      keyExtractor={(item) => item.id}
-    />
+    </>
   );
 };
 

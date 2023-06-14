@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { SafeAreaView, View } from 'react-native';
 import { COLORS } from '../../constants';
-import KajianDetailComponent from '../../components/kajian/detail/KajianDetailComponent';
+import JadwalDetailComponent from '../../components/jadwal/detail/JadwalDetailComponent';
 
-const KajianDetails = () => {
+const JadwalDetail = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
@@ -17,9 +17,9 @@ const KajianDetails = () => {
           flex: 1,
         }}
       >
-        <KajianDetailComponent />
+        <JadwalDetailComponent />
       </View>
     </SafeAreaView>
   );
 };
-export default KajianDetails;
+export default JadwalDetail;

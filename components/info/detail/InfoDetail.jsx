@@ -1,25 +1,42 @@
 import { Image } from 'expo-image';
-import { ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { styles } from './infodetail.style';
+import useFetch from '../../../hook/useFetch';
+import { useSearchParams } from 'expo-router';
+import { COLORS } from '../../../constants';
+import { BASE_URL } from '../../../utils/http';
+import { formatDate } from '../../../utils/date';
 
 const InfoDetail = () => {
+  const params = useSearchParams();
+
+  const { data, isLoading, error } = useFetch(`api/banners/${params.id}`, {
+    populate: '*',
+  });
+
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.title}>Judul Berita</Text>
-        <Text style={styles.date}>Palembang, 4 Mei 2023</Text>
-        <Image
-          style={styles.image}
-          source='https://picsum.photos/seed/696/3000/2000'
-          contentFit='cover'
-          transition={1000}
-        />
-        <Text style={styles.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rerum
-          quod sapiente velit aut pariatur ad minima quas maxime autem eaque
-          expedita esse asperiores sunt rem repellendus explicabo nostrum ipsam.
-        </Text>
-      </View>
+      {isLoading ? (
+        <ActivityIndicator size={'large'} color={COLORS.primary} />
+      ) : error ? (
+        <Text>Something Went Wrong</Text>
+      ) : data.length === 0 ? (
+        <Text>Tidak Ada Data</Text>
+      ) : (
+        <View style={styles.container}>
+          <Text style={styles.title}>{data.attributes.judul}</Text>
+          <Text style={styles.date}>
+            {data.attributes.daerah} | {formatDate(data.attributes.tanggal)}
+          </Text>
+          <Image
+            style={styles.image}
+            source={BASE_URL + data.attributes.gambar.data.attributes.url}
+            contentFit='cover'
+            transition={1000}
+          />
+          <Text style={styles.description}>{data.attributes.deskripsi}</Text>
+        </View>
+      )}
     </ScrollView>
   );
 };

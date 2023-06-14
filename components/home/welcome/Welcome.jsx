@@ -4,15 +4,18 @@ import styles from './welcome.style';
 import WelcomeBanner from '../../common/banner/welcome/WelcomeBanner';
 import HeaderTitle from '../../common/header/HeaderTitle';
 import { useRouter } from 'expo-router';
+import useFetch from '../../../hook/useFetch';
 
 const Welcome = () => {
   const router = useRouter();
+
+  const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
 
   return (
     <View>
       <View style={styles.container}>
         <HeaderTitle />
-        <WelcomeBanner />
+        <WelcomeBanner data={data} />
 
         <TouchableOpacity
           onPress={() => {

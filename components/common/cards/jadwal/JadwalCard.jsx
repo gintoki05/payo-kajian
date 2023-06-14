@@ -1,41 +1,88 @@
-import { Pressable, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
 import { styles } from './jadwalcard.style';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
+import useFetch from '../../../../hook/useFetch';
+import { BASE_URL } from '../../../../utils/http';
 
 const JadwalCard = () => {
   const router = useRouter();
 
-  return (
-    <View>
-      <Pressable
-        onPress={() => {
-          router.push('kajian/1');
-        }}
-      >
-        <View style={styles.cardContainer}>
-          <Image
-            style={styles.image}
-            source='https://picsum.photos/seed/696/3000/2000'
-            contentFit='cover'
-            transition={1000}
-          />
+  const { data, isLoading, error } = useFetch('api/jadwal-kajians', {
+    populate: {
+      poster: {
+        fields: ['url'],
+      },
+    },
+  });
 
-          <View style={styles.tanggalContainer}>
-            <View>
-              <Text style={styles.tanggal}>02</Text>
-              <Text style={styles.bulan}>Mei 23</Text>
-            </View>
-          </View>
+  const Item = ({ item }) => (
+    <Pressable
+      onPress={() => {
+        router.push(`jadwal/${item.id}`);
+      }}
+    >
+      <View style={styles.cardContainer}>
+        <Image
+          style={styles.image}
+          source={BASE_URL + item.attributes.poster.data.attributes.url}
+          contentFit='cover'
+          transition={1000}
+        />
 
-          <View style={styles.infoContainer}>
-            <Text style={styles.judulKajian}>Judul Kajian</Text>
-            <Text style={styles.subTitle}>Ustadz Fulan • 10:00 WIB</Text>
-            <Text style={styles.lokasi}>Masjid Bakti, Palembang</Text>
+        <View style={styles.tanggalContainer}>
+          <View>
+            <Text style={styles.tanggal}>
+              {new Date(item.attributes.tanggal).getDate()}
+            </Text>
+            <Text style={styles.bulan}>
+              {new Date(item.attributes.tanggal).toLocaleString('id-ID', {
+                month: 'short',
+                year: '2-digit',
+              })}
+            </Text>
           </View>
         </View>
-      </Pressable>
-    </View>
+
+        <View style={styles.infoContainer}>
+          <Text style={styles.judulKajian}>{item.attributes.judul}</Text>
+          <Text style={styles.subTitle}>
+            {item.attributes.pemateri} •{' '}
+            {new Date(item.attributes.tanggal).toLocaleTimeString('id-ID', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: false,
+            })}{' '}
+            WIB
+          </Text>
+          <Text style={styles.lokasi}>{item.attributes.lokasi}</Text>
+        </View>
+      </View>
+    </Pressable>
+  );
+
+  return (
+    <>
+      {isLoading ? (
+        <ActivityIndicator size={'large'} />
+      ) : error ? (
+        <Text>Ada masalah nih, coba lagi atau hubungi operator</Text>
+      ) : data.length === 0 ? (
+        <Text>Tidak ada data</Text>
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item) => item.id}
+        />
+      )}
+    </>
   );
 };
 
