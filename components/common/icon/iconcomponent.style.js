@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: SIZES.small / 1.25,
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
   btnImg: (dimension) => ({
     width: dimension,

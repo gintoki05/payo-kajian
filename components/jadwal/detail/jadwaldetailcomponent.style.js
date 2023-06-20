@@ -10,10 +10,12 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
     left: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
   },
   image: {
     flex: 1,
-    height: 350,
+    height: 450,
     width: '100%',
     backgroundColor: COLORS.gray2,
   },

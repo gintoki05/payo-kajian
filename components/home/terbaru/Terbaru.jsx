@@ -20,6 +20,10 @@ const Terbaru = () => {
         fields: ['url'],
       },
     },
+    pagination: {
+      page: 1,
+      pageSize: 5,
+    },
   });
 
   const Item = ({ item }) => (
@@ -83,6 +87,7 @@ const Terbaru = () => {
             renderItem={({ item }) => <Item item={item} />}
             keyExtractor={(item) => item.id}
             horizontal
+            showsHorizontalScrollIndicator={false}
           />
         </View>
       )}

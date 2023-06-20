@@ -3,9 +3,8 @@ import { COLORS, FONT, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: COLORS.gray,
     width: '100%',
-    height: 150,
+    flex: 1,
   },
   image: {
     height: 150,

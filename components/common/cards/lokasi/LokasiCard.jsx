@@ -1,47 +1,67 @@
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { styles } from './lokasicard.style';
 import { Image } from 'expo-image';
 import { images } from '../../../../constants';
 import { useRouter } from 'expo-router';
+import useFetch from '../../../../hook/useFetch';
+import { BASE_URL } from '../../../../utils/http';
 
 const LokasiCard = () => {
   const router = useRouter();
 
-  return (
+  const { data, isLoading, error } = useFetch('api/lokasis', {
+    populate: {
+      foto: {
+        fields: ['url'],
+      },
+    },
+  });
+
+  const Item = ({ item }) => (
     <Pressable
       onPress={() => {
-        router.push('lokasi/1 ');
+        router.push(`lokasi/${item.id}`);
       }}
     >
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.cardContainer}>
-            <Image
-              source={images.mosque}
-              contentFit='cover'
-              transition={1000}
-              style={styles.image}
-            />
-            <View style={styles.titleContainer}>
-              <Text style={styles.title}>Masjid Bakti</Text>
-            </View>
+      <View style={styles.container}>
+        <View style={styles.cardContainer}>
+          <Image
+            source={BASE_URL + item.attributes.foto.data.attributes.url}
+            contentFit='cover'
+            transition={1000}
+            style={styles.image}
+          />
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>{item.attributes.nama}</Text>
           </View>
         </View>
-        <View style={styles.container}>
-          <View style={styles.cardContainer}>
-            <Image
-              source={images.mosque}
-              contentFit='cover'
-              transition={1000}
-              style={styles.image}
-            />
-            <View style={styles.titleContainer}>
-              <Text style={styles.title}>Masjid Bakti</Text>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
+      </View>
     </Pressable>
+  );
+
+  return (
+    <>
+      {isLoading ? (
+        <ActivityIndicator size={'large'} />
+      ) : error ? (
+        <Text>Ada masalah nih, coba lagi atau hubungi operator</Text>
+      ) : data.length === 0 ? (
+        <Text>Tidak ada data</Text>
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item) => item.id}
+        />
+      )}
+    </>
   );
 };
 export default LokasiCard;

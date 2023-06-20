@@ -1,24 +1,45 @@
-import { Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { styles } from './lokasidetailcomponent.style';
 import { Image } from 'expo-image';
-import { SIZES, images } from '../../../constants';
+import { COLORS, SIZES, images } from '../../../constants';
+import { useRouter, useSearchParams } from 'expo-router';
+import useFetch from '../../../hook/useFetch';
+import { BASE_URL } from '../../../utils/http';
 
 const LokasiDetailComponent = () => {
+  const params = useSearchParams();
+
+  const { data, isLoading, error } = useFetch(`api/lokasis/${params.id}`, {
+    populate: {
+      foto: {
+        fields: ['url'],
+      },
+    },
+  });
+
   return (
-    <View>
-      <View style={styles.cardContainer}>
-        <Image
-          source={images.mosque}
-          contentFit='cover'
-          transition={1000}
-          style={styles.image}
-        />
-        <View style={{ padding: SIZES.medium, rowGap: SIZES.xSmall }}>
-          <Text style={styles.title}>Masjid Bakti</Text>
-          <Text>Jl. SukaBakti, KM 6.5, Palembang</Text>
+    <ScrollView>
+      {isLoading ? (
+        <ActivityIndicator size={'large'} color={COLORS.primary} />
+      ) : error ? (
+        <Text>Something Went Wrong</Text>
+      ) : data.length === 0 ? (
+        <Text>Tidak Ada Data</Text>
+      ) : (
+        <View style={styles.cardContainer}>
+          <Image
+            source={BASE_URL + data.attributes.foto.data.attributes.url}
+            contentFit='cover'
+            transition={1000}
+            style={styles.image}
+          />
+          <View style={{ padding: SIZES.medium, rowGap: SIZES.xSmall }}>
+            <Text style={styles.title}>{data.attributes.nama}</Text>
+            <Text>{data.attributes.alamat}</Text>
+          </View>
         </View>
-      </View>
-    </View>
+      )}
+    </ScrollView>
   );
 };
 export default LokasiDetailComponent;

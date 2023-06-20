@@ -1,18 +1,18 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, ScrollView, Text, View } from 'react-native';
 import Request from '../common/Request';
 import { styles } from './pasarcomponent.style';
 
 const PasarComponent = () => {
   return (
-    <FlatList>
+    <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.title}>
+        <Text>
           Fitur lagi dibangun, nantikan info update selanjutnya di banner atau
           pengumuman ya! 🙌
         </Text>
         <Request />
       </View>
-    </FlatList>
+    </ScrollView>
   );
 };
 export default PasarComponent;
