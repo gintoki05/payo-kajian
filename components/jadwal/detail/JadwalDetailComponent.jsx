@@ -7,21 +7,24 @@ import IconComponent from '../../common/icon/IconComponent';
 import useFetch from '../../../hook/useFetch';
 import { BASE_URL } from '../../../utils/http';
 import { formatDate } from '../../../utils/date';
+import useFetchById from '../../../hook/useFetchById';
 
 const JadwalDetailComponent = () => {
   const router = useRouter();
   const params = useSearchParams();
 
-  const { data, isLoading, error } = useFetch(
-    `api/jadwal-kajians/${params.id}`,
-    {
-      populate: {
-        poster: {
-          fields: ['url'],
-        },
-      },
-    }
-  );
+  // const { data, isLoading, error } = useFetch(
+  //   `api/jadwal-kajians/${params.id}`,
+  //   {
+  //     populate: {
+  //       poster: {
+  //         fields: ['url'],
+  //       },
+  //     },
+  //   }
+  // );
+
+  const { data, isLoading, error } = useFetchById('jadwal-kajian', params.id);
 
   return (
     <ScrollView>
@@ -35,7 +38,7 @@ const JadwalDetailComponent = () => {
         <View style={styles.container}>
           <Image
             style={styles.image}
-            source={BASE_URL + data.attributes.poster.data.attributes.url}
+            source={data.gambar}
             contentFit='cover'
             transition={1000}
           />
@@ -47,22 +50,19 @@ const JadwalDetailComponent = () => {
             />
           </View>
           <View style={{ padding: SIZES.small }}>
-            <Text style={styles.title}>{data.attributes.judul}</Text>
+            <Text style={styles.title}>{data.judul}</Text>
             <View style={styles.dateContainer}>
               <IconComponent iconUrl={icons.calendar} dimension='60%' />
               <View style={{ rowGap: 4 }}>
                 <Text style={styles.dateModeratorLocationTitle}>
-                  {formatDate(data.attributes.tanggal)}
+                  {formatDate(data.tanggal)}
                 </Text>
                 <Text style={styles.dateModeratorLocationTitle}>
-                  {new Date(data.attributes.tanggal).toLocaleTimeString(
-                    'id-ID',
-                    {
-                      hour: 'numeric',
-                      minute: 'numeric',
-                      hour12: false,
-                    }
-                  )}{' '}
+                  {new Date(data.tanggal).toLocaleTimeString('id-ID', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: false,
+                  })}{' '}
                   WIB
                 </Text>
               </View>
@@ -70,16 +70,16 @@ const JadwalDetailComponent = () => {
             <View style={styles.moderatorContainer}>
               <IconComponent iconUrl={icons.muslim} dimension='60%' />
               <Text style={styles.dateModeratorLocationTitle}>
-                {data.attributes.pemateri}
+                {data.pemateri}
               </Text>
             </View>
             <View style={styles.locationContainer}>
               <IconComponent iconUrl={icons.compass} dimension='60%' />
               <Text style={styles.dateModeratorLocationTitle}>
-                {data.attributes.lokasi}
+                {data.lokasi}
               </Text>
             </View>
-            <Text style={styles.description}>{data.attributes.deskripsi}</Text>
+            <Text style={styles.description}>{data.deskripsi}</Text>
           </View>
         </View>
       )}

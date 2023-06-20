@@ -14,17 +14,18 @@ import { styles } from './terbaru.style';
 const Terbaru = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('api/jadwal-kajians', {
-    populate: {
-      poster: {
-        fields: ['url'],
-      },
-    },
-    pagination: {
-      page: 1,
-      pageSize: 5,
-    },
-  });
+  const { data, isLoading, error } = useFetch('jadwal-kajian');
+  // const { data, isLoading, error } = useFetch('api/jadwal-kajians', {
+  //   populate: {
+  //     poster: {
+  //       fields: ['url'],
+  //     },
+  //   },
+  //   pagination: {
+  //     page: 1,
+  //     pageSize: 5,
+  //   },
+  // });
 
   const Item = ({ item }) => (
     <Pressable
@@ -35,7 +36,7 @@ const Terbaru = () => {
       <View style={styles.cardContainer}>
         <Image
           style={styles.image}
-          source={BASE_URL + item.attributes.poster.data.attributes.url}
+          source={item.gambar}
           contentFit='cover'
           transition={1000}
         />
@@ -43,10 +44,10 @@ const Terbaru = () => {
         <View style={styles.tanggalContainer}>
           <View>
             <Text style={styles.tanggal}>
-              {new Date(item.attributes.tanggal).getDate()}
+              {new Date(item.tanggal).getDate()}
             </Text>
             <Text style={styles.bulan}>
-              {new Date(item.attributes.tanggal).toLocaleString('id-ID', {
+              {new Date(item.tanggal).toLocaleString('id-ID', {
                 month: 'short',
                 year: '2-digit',
               })}
@@ -55,17 +56,17 @@ const Terbaru = () => {
         </View>
 
         <View style={styles.infoContainer}>
-          <Text style={styles.judulKajian}>{item.attributes.judul}</Text>
+          <Text style={styles.judulKajian}>{item.judul}</Text>
           <Text style={styles.subTitle}>
-            {item.attributes.pemateri} •{' '}
-            {new Date(item.attributes.tanggal).toLocaleTimeString('id-ID', {
+            {item.pemateri} •{' '}
+            {new Date(item.tanggal).toLocaleTimeString('id-ID', {
               hour: 'numeric',
               minute: 'numeric',
               hour12: false,
             })}{' '}
             WIB
           </Text>
-          <Text style={styles.lokasi}>{item.attributes.lokasi}</Text>
+          <Text style={styles.lokasi}>{item.lokasi}</Text>
         </View>
       </View>
     </Pressable>

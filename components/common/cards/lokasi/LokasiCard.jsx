@@ -16,13 +16,15 @@ import { BASE_URL } from '../../../../utils/http';
 const LokasiCard = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('api/lokasis', {
-    populate: {
-      foto: {
-        fields: ['url'],
-      },
-    },
-  });
+  // const { data, isLoading, error } = useFetch('api/lokasis', {
+  //   populate: {
+  //     foto: {
+  //       fields: ['url'],
+  //     },
+  //   },
+  // });
+
+  const { data, isLoading, error } = useFetch('lokasi');
 
   const Item = ({ item }) => (
     <Pressable
@@ -33,13 +35,13 @@ const LokasiCard = () => {
       <View style={styles.container}>
         <View style={styles.cardContainer}>
           <Image
-            source={BASE_URL + item.attributes.foto.data.attributes.url}
+            source={item.gambar}
             contentFit='cover'
             transition={1000}
             style={styles.image}
           />
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>{item.attributes.nama}</Text>
+            <Text style={styles.title}>{item.nama}</Text>
           </View>
         </View>
       </View>
