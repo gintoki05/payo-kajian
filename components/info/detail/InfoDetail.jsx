@@ -1,18 +1,19 @@
 import { Image } from 'expo-image';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { styles } from './infodetail.style';
-import useFetch from '../../../hook/useFetch';
 import { useSearchParams } from 'expo-router';
 import { COLORS } from '../../../constants';
 import { BASE_URL } from '../../../utils/http';
 import { formatDate } from '../../../utils/date';
+import useFetchById from '../../../hook/useFetchById';
 
 const InfoDetail = () => {
   const params = useSearchParams();
 
-  const { data, isLoading, error } = useFetch(`api/banners/${params.id}`, {
-    populate: '*',
-  });
+  // const { data, isLoading, error } = useFetch(`api/banners/${params.id}`, {
+  //   populate: '*',
+  // });
+  const { data, isLoading, error } = useFetchById('info', params.id);
 
   return (
     <ScrollView>
@@ -24,17 +25,17 @@ const InfoDetail = () => {
         <Text>Tidak Ada Data</Text>
       ) : (
         <View style={styles.container}>
-          <Text style={styles.title}>{data.attributes.judul}</Text>
+          <Text style={styles.title}>{data.judul}</Text>
           <Text style={styles.date}>
-            {data.attributes.daerah} | {formatDate(data.attributes.tanggal)}
+            {data.daerah} | {formatDate(data.tanggal)}
           </Text>
           <Image
             style={styles.image}
-            source={BASE_URL + data.attributes.gambar.data.attributes.url}
+            source={data.gambar}
             contentFit='cover'
             transition={1000}
           />
-          <Text style={styles.description}>{data.attributes.deskripsi}</Text>
+          <Text style={styles.description}>{data.deskripsi}</Text>
         </View>
       )}
     </ScrollView>

@@ -16,7 +16,8 @@ import { BASE_URL } from '../../utils/http';
 const Info = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
+  // const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
+  const { data, isLoading, error } = useFetch('info');
 
   const Item = ({ item }) => (
     <Pressable
@@ -28,7 +29,7 @@ const Info = () => {
         <View style={styles.cardContainer}>
           <Image
             style={styles.image}
-            source={BASE_URL + item.attributes.gambar.data.attributes.url}
+            source={item.gambar}
             contentFit='cover'
             transition={1000}
           />

@@ -1,27 +1,19 @@
-import axios from 'axios';
+// useFetchById.js
 import { useEffect, useState } from 'react';
-import { BASE_URL } from '../utils/http';
 import { supabase } from '../utils/supabaseClient';
 
-const useFetch = (endpoint, query) => {
+const useFetchById = (endpoint, id) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // const options = {
-  //   method: 'GET',
-  //   url: `${BASE_URL}/${endpoint}`,
-  //   params: { ...query },
-  // };
-
-  const fetchAllData = async () => {
+  const fetchDataById = async () => {
     setIsLoading(true);
 
     try {
-      // const response = await axios.request(options);
-      const response = await supabase.from(endpoint).select();
+      const response = await supabase.from(endpoint).select().eq('id', id);
 
-      setData(response.data);
+      setData(response.data[0]);
       setIsLoading(false);
     } catch (error) {
       setError(error);
@@ -32,15 +24,15 @@ const useFetch = (endpoint, query) => {
   };
 
   useEffect(() => {
-    fetchAllData();
-  }, []);
+    fetchDataById();
+  }, [endpoint, id]);
 
   const refetch = () => {
     setIsLoading(true);
-    fetchData();
+    fetchDataById();
   };
 
   return { data, isLoading, error, refetch };
 };
 
-export default useFetch;
+export default useFetchById;

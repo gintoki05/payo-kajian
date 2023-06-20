@@ -19,7 +19,7 @@ const WelcomeBanner = ({ data }) => {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={BASE_URL + item.attributes.gambar.data.attributes.url}
+          source={item.gambar}
           contentFit='cover'
           transition={2000}
         />

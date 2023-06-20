@@ -21,8 +21,8 @@ const Home = () => {
           }}
         >
           <Welcome />
-          <Jelajah />
-          <Terbaru />
+          {/* <Jelajah /> */}
+          {/* <Terbaru /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -9,7 +9,8 @@ import useFetch from '../../../hook/useFetch';
 const Welcome = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
+  // const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
+  const { data } = useFetch('info');
 
   return (
     <View>
