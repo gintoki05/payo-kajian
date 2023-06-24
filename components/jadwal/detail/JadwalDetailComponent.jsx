@@ -4,10 +4,10 @@ import { styles } from './jadwaldetailcomponent.style';
 import { COLORS, SIZES, icons } from '../../../constants';
 import { useRouter, useSearchParams } from 'expo-router';
 import IconComponent from '../../common/icon/IconComponent';
-import useFetch from '../../../hook/useFetch';
-import { BASE_URL } from '../../../utils/http';
 import { formatDate } from '../../../utils/date';
 import useFetchById from '../../../hook/useFetchById';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 const JadwalDetailComponent = () => {
   const router = useRouter();
@@ -26,6 +26,21 @@ const JadwalDetailComponent = () => {
 
   const { data, isLoading, error } = useFetchById('jadwal-kajian', params.id);
 
+  const handleShare = async () => {
+    try {
+      const imageUrl = data.gambar; // Dummy image URL
+      const judul = data.judul.replace(/\s/g, '');
+      const fileUri = FileSystem.cacheDirectory + `${judul}.jpg`; // Local file path where the image will be saved
+
+      // Download the image from the URL
+      await FileSystem.downloadAsync(imageUrl, fileUri);
+
+      await Sharing.shareAsync(fileUri);
+    } catch (error) {
+      console.error('Error sharing:', error);
+    }
+  };
+
   return (
     <ScrollView>
       {isLoading ? (
@@ -42,10 +57,17 @@ const JadwalDetailComponent = () => {
             contentFit='cover'
             transition={1000}
           />
-          <View style={styles.iconContainer}>
+          <View style={styles.iconLeftContainer}>
             <IconComponent
               iconUrl={icons.left}
               handlePress={() => router.back()}
+              dimension='60%'
+            />
+          </View>
+          <View style={styles.iconRightContainer}>
+            <IconComponent
+              iconUrl={icons.share}
+              handlePress={handleShare}
               dimension='60%'
             />
           </View>

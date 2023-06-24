@@ -18,8 +18,14 @@ const useFetch = (endpoint, query) => {
     setIsLoading(true);
 
     try {
-      // const response = await axios.request(options);
-      const response = await supabase.from(endpoint).select();
+      let supabaseQuery = supabase.from(endpoint).select();
+
+      if (query && query.range) {
+        const [start, end] = query.range;
+        supabaseQuery = supabaseQuery.range(start, end);
+      }
+
+      const response = await supabaseQuery;
 
       setData(response.data);
       setIsLoading(false);
@@ -37,7 +43,7 @@ const useFetch = (endpoint, query) => {
 
   const refetch = () => {
     setIsLoading(true);
-    fetchData();
+    fetchAllData();
   };
 
   return { data, isLoading, error, refetch };

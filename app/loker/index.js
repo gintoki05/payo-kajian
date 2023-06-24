@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 import IconComponent from '../../components/common/icon/IconComponent';
 import { COLORS, icons } from '../../constants';
 import Soon from '../../components/common/soon/Soon';
+import Request from '../../components/common/Request';
 
 const Loker = () => {
   const router = useRouter();
@@ -30,8 +31,11 @@ const Loker = () => {
       <View
         style={{
           flex: 1,
+          padding: 10,
         }}
-      ></View>
+      >
+        <Request />
+      </View>
     </SafeAreaView>
   );
 };

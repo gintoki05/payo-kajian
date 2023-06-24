@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   FlatList,
   Pressable,
+  RefreshControl,
   Text,
   View,
 } from 'react-native';
@@ -10,11 +11,16 @@ import { useRouter } from 'expo-router';
 import useFetch from '../../../hook/useFetch';
 import { BASE_URL } from '../../../utils/http';
 import { styles } from './terbaru.style';
+import { useCallback, useState } from 'react';
 
 const Terbaru = () => {
+  const [refreshing, setRefreshing] = useState(false);
+
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('jadwal-kajian');
+  const { data, isLoading, error, refetch } = useFetch('jadwal-kajian', {
+    range: [0, 4],
+  });
   // const { data, isLoading, error } = useFetch('api/jadwal-kajians', {
   //   populate: {
   //     poster: {
@@ -26,6 +32,12 @@ const Terbaru = () => {
   //     pageSize: 5,
   //   },
   // });
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch();
+    setRefreshing(false);
+  }, []);
 
   const Item = ({ item }) => (
     <Pressable
@@ -84,6 +96,9 @@ const Terbaru = () => {
         <View style={styles.container}>
           <Text style={styles.headerTitle}>Terbaru</Text>
           <FlatList
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
             data={data}
             renderItem={({ item }) => <Item item={item} />}
             keyExtractor={(item) => item.id}

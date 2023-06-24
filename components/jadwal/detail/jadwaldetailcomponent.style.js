@@ -6,10 +6,17 @@ export const styles = StyleSheet.create({
   container: {
     borderRadius: SIZES.small,
   },
-  iconContainer: {
+  iconLeftContainer: {
     position: 'absolute',
     top: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
     left: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+  },
+  iconRightContainer: {
+    position: 'absolute',
+    top: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
+    right: 10,
     backgroundColor: 'white',
     borderRadius: 20,
   },

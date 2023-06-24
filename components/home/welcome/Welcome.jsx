@@ -10,7 +10,9 @@ const Welcome = () => {
   const router = useRouter();
 
   // const { data, isLoading, error } = useFetch('api/banners', { populate: '*' });
-  const { data } = useFetch('info');
+  const { data } = useFetch('info', {
+    range: [0, 3],
+  });
 
   return (
     <View>

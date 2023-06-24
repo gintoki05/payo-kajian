@@ -53,12 +53,23 @@ const JelajahIcon = () => {
             <BadgeSoon />
           </View>
         </Pressable>
-        <Pressable onPress={() => setModalVisible(!modalVisible)}>
+        <Pressable onPress={() => router.push('/loker')}>
+          <View style={styles.cardContainer}>
+            <Image
+              source={icons.hiring}
+              contentFit='fill'
+              style={styles.card}
+            />
+            <Text style={styles.title}>Loker</Text>
+            <BadgeSoon />
+          </View>
+        </Pressable>
+        {/* <Pressable onPress={() => setModalVisible(!modalVisible)}>
           <View style={styles.cardContainer}>
             <Image source={icons.menu} contentFit='fill' style={styles.card} />
             <Text style={styles.title}>Lainnya</Text>
           </View>
-        </Pressable>
+        </Pressable> */}
       </View>
     </View>
   );

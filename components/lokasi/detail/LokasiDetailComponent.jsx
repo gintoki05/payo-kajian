@@ -1,4 +1,10 @@
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { styles } from './lokasidetailcomponent.style';
 import { Image } from 'expo-image';
 import { COLORS, SIZES, images } from '../../../constants';
@@ -6,6 +12,7 @@ import { useRouter, useSearchParams } from 'expo-router';
 import useFetch from '../../../hook/useFetch';
 import { BASE_URL } from '../../../utils/http';
 import useFetchById from '../../../hook/useFetchById';
+import * as Linking from 'expo-linking';
 
 const LokasiDetailComponent = () => {
   const params = useSearchParams();
@@ -39,6 +46,15 @@ const LokasiDetailComponent = () => {
           <View style={{ padding: SIZES.medium, rowGap: SIZES.xSmall }}>
             <Text style={styles.title}>{data.nama}</Text>
             <Text>{data.alamat}</Text>
+            {data.lainnya === '' || null ? (
+              ''
+            ) : (
+              <View style={styles.petunjukButton}>
+                <Pressable onPress={() => Linking.openURL(data.lainnya)}>
+                  <Text style={styles.petunjukTitle}>Petunjuk Arah</Text>
+                </Pressable>
+              </View>
+            )}
           </View>
         </View>
       )}

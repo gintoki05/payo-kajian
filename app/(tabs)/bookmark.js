@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { COLORS } from '../../constants/theme';
 
-const Feed = () => {
+const Bookmark = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
@@ -17,10 +17,10 @@ const Feed = () => {
             flex: 1,
           }}
         >
-          <Text>Feed</Text>
+          <Text>Bookmark</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-export default Feed;
+export default Bookmark;

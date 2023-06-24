@@ -15,4 +15,17 @@ export const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     color: COLORS.chineseBlack,
   },
+  petunjukButton: {
+    backgroundColor: COLORS.primary,
+    flex: 1,
+    width: 150,
+    marginTop: SIZES.large,
+    borderRadius: SIZES.medium,
+  },
+  petunjukTitle: {
+    fontFamily: FONT.bold,
+    color: COLORS.lightWhite,
+    padding: SIZES.medium,
+    textAlign: 'center',
+  },
 });

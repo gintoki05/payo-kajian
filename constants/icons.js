@@ -10,6 +10,7 @@ import hiring from '../assets/icons/hiring.png';
 import shopping from '../assets/icons/shopping-online.png';
 import kitab from '../assets/icons/kitab.png';
 import kaaba from '../assets/icons/kaaba.png';
+import share from '../assets/icons/share.png';
 
 export default {
   left,
@@ -24,4 +25,5 @@ export default {
   shopping,
   kitab,
   kaaba,
+  share,
 };
