@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { COLORS } from '../../constants/theme';
+import FeedComponent from '../../components/feed/FeedComponent';
 
 const Feed = () => {
   return (
@@ -11,15 +12,9 @@ const Feed = () => {
         }}
       />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            flex: 1,
-          }}
-        >
-          <Text>Feed</Text>
-        </View>
-      </ScrollView>
+      {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+      <FeedComponent />
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };

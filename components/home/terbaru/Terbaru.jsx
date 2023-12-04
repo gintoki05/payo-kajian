@@ -9,7 +9,6 @@ import {
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import useFetch from '../../../hook/useFetch';
-import { BASE_URL } from '../../../utils/http';
 import { styles } from './terbaru.style';
 import { useCallback, useState } from 'react';
 
@@ -93,7 +92,7 @@ const Terbaru = () => {
       ) : data.length === 0 ? (
         <Text>Tidak ada data</Text>
       ) : (
-        <View style={styles.container}>
+        <View>
           <Text style={styles.headerTitle}>Terbaru</Text>
           <FlatList
             refreshControl={

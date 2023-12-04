@@ -1,31 +1,30 @@
-import { Stack } from 'expo-router';
-import { useCallback } from 'react';
+import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+import { Slot, SplashScreen } from 'expo-router';
+import { router } from 'expo-router';
 
 SplashScreen.preventAutoHideAsync();
 
 const Layout = () => {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     GilroyRegular: require('../assets/fonts/Gilroy-Regular.ttf'),
     GilroyMedium: require('../assets/fonts/Gilroy-Medium.ttf'),
     GilroySemiBold: require('../assets/fonts/Gilroy-SemiBold.ttf'),
     GilroyBold: require('../assets/fonts/Gilroy-Bold.ttf'),
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+  useEffect(() => {
+    if (fontsLoaded || fontError) {
+      // Hide the splash screen after the fonts have loaded (or an error was returned) and the UI is ready.
+      SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded) return null;
+  // Prevent rendering until the font has loaded or an error was returned
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
-  return (
-    <Stack onLayout={onLayoutRootView}>
-      <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-    </Stack>
-  );
+  return <Slot />;
 };
-
 export default Layout;

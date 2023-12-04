@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { COLORS } from '../../constants/theme';
+import BookmarkComponent from '../../components/bookmark/BookmarkComponent';
 
 const Bookmark = () => {
   return (
@@ -11,15 +12,9 @@ const Bookmark = () => {
         }}
       />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            flex: 1,
-          }}
-        >
-          <Text>Bookmark</Text>
-        </View>
-      </ScrollView>
+      {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+      <BookmarkComponent />
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };

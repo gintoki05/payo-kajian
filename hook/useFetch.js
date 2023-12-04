@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { BASE_URL } from '../utils/http';
 import { supabase } from '../utils/supabaseClient';
 
 const useFetch = (endpoint, query) => {

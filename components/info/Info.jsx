@@ -11,7 +11,6 @@ import { Image } from 'expo-image';
 import styles from './info.style';
 import { useRouter } from 'expo-router';
 import useFetch from '../../hook/useFetch';
-import { BASE_URL } from '../../utils/http';
 
 const Info = () => {
   const router = useRouter();

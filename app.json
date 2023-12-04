@@ -4,7 +4,28 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "payo-kajian",
-    "slug": "payo-kajian"
+    "name": "Payo Kajian",
+    "slug": "payo-kajian",
+    "extra": {
+      "eas": {
+        "projectId": "705d00e1-1098-4a1f-b49d-db047526d090"
+      }
+    },
+    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2A3470"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.ajie_prastyo.payokajian"
+    }
   }
 }

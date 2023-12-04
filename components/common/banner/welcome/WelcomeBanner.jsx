@@ -4,7 +4,6 @@ import { Image } from 'expo-image';
 import styles from './welcomebanner.style';
 import { useRouter } from 'expo-router';
 import Carousel from 'react-native-reanimated-carousel';
-import { BASE_URL } from '../../../../utils/http';
 
 const WelcomeBanner = ({ data }) => {
   const router = useRouter();

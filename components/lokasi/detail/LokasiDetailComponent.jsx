@@ -9,8 +9,6 @@ import { styles } from './lokasidetailcomponent.style';
 import { Image } from 'expo-image';
 import { COLORS, SIZES, images } from '../../../constants';
 import { useRouter, useSearchParams } from 'expo-router';
-import useFetch from '../../../hook/useFetch';
-import { BASE_URL } from '../../../utils/http';
 import useFetchById from '../../../hook/useFetchById';
 import * as Linking from 'expo-linking';
 

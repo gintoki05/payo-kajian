@@ -9,7 +9,6 @@ import { styles } from './jadwalcard.style';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import useFetch from '../../../../hook/useFetch';
-import { BASE_URL } from '../../../../utils/http';
 
 const JadwalCard = () => {
   const router = useRouter();

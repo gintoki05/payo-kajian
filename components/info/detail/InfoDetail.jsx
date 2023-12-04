@@ -3,7 +3,6 @@ import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { styles } from './infodetail.style';
 import { useSearchParams } from 'expo-router';
 import { COLORS } from '../../../constants';
-import { BASE_URL } from '../../../utils/http';
 import { formatDate } from '../../../utils/date';
 import useFetchById from '../../../hook/useFetchById';
 

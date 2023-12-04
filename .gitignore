@@ -1,3 +1,4 @@
+.env
 node_modules/
 .expo/
 dist/
@@ -14,4 +15,4 @@ web-build/
 .DS_Store
 
 utils/http.js
-utils/supabaseClient.js
+# utils/supabaseClient.js
