@@ -1,15 +1,15 @@
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView, Text } from 'react-native';
-import { COLORS, SIZES, icons } from '../../constants';
-import InfoDetail from '../../components/info/detail/InfoDetail';
+import { COLORS, SIZES, icons } from '../../../constants';
+import InfoDetail from '../../../components/info/detail/InfoDetail';
 import { View } from 'react-native';
-import IconComponent from '../../components/common/icon/IconComponent';
+import IconComponent from '../../../components/common/icon/IconComponent';
 
 const InfoDetails = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
           headerTitle: '',
@@ -36,7 +36,7 @@ const InfoDetails = () => {
       >
         <InfoDetail />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 

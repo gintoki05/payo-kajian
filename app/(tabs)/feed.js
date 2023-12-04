@@ -5,7 +5,7 @@ import FeedComponent from '../../components/feed/FeedComponent';
 
 const Feed = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
           headerShown: false,
@@ -15,7 +15,7 @@ const Feed = () => {
       {/* <ScrollView showsVerticalScrollIndicator={false}> */}
       <FeedComponent />
       {/* </ScrollView> */}
-    </SafeAreaView>
+    </>
   );
 };
 export default Feed;

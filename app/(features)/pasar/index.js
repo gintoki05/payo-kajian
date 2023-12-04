@@ -1,18 +1,17 @@
 import { Stack, useRouter } from 'expo-router';
-import { SafeAreaView } from 'react-native';
-import { COLORS, icons } from '../../constants';
-import { View } from 'react-native';
-import LokasiDetailComponent from '../../components/lokasi/detail/LokasiDetailComponent';
-import IconComponent from '../../components/common/icon/IconComponent';
+import { SafeAreaView, Text, View } from 'react-native';
+import IconComponent from '../../../components/common/icon/IconComponent';
+import { COLORS, icons } from '../../../constants';
+import PasarComponent from '../../../components/pasar/PasarComponent';
 
-const LokasiDetail = () => {
+const Pasar = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
-          headerTitle: 'Detail Lokasi',
+          headerTitle: 'Pasar',
           headerStyle: {
             backgroundColor: COLORS.lightWhite,
           },
@@ -33,10 +32,9 @@ const LokasiDetail = () => {
           flex: 1,
         }}
       >
-        <LokasiDetailComponent />
+        <PasarComponent />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
-
-export default LokasiDetail;
+export default Pasar;

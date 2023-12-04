@@ -7,7 +7,7 @@ import Terbaru from '../../components/home/terbaru/Terbaru';
 
 const Home = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
           headerShown: false,
@@ -25,7 +25,7 @@ const Home = () => {
           <Terbaru />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 export default Home;

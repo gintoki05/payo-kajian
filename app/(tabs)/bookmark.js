@@ -5,7 +5,7 @@ import BookmarkComponent from '../../components/bookmark/BookmarkComponent';
 
 const Bookmark = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
           headerShown: false,
@@ -15,7 +15,7 @@ const Bookmark = () => {
       {/* <ScrollView showsVerticalScrollIndicator={false}> */}
       <BookmarkComponent />
       {/* </ScrollView> */}
-    </SafeAreaView>
+    </>
   );
 };
 export default Bookmark;

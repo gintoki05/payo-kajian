@@ -1,17 +1,18 @@
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView, Text, View } from 'react-native';
-import IconComponent from '../../components/common/icon/IconComponent';
-import { COLORS, icons } from '../../constants';
-import IbadahComponent from '../../components/ibadah/IbadahComponent';
+import IconComponent from '../../../components/common/icon/IconComponent';
+import { COLORS, icons } from '../../../constants';
+import Soon from '../../../components/common/soon/Soon';
+import Request from '../../../components/common/Request';
 
-const Ibadah = () => {
+const Loker = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
-          headerTitle: 'Ibadah',
+          headerTitle: 'Loker',
           headerStyle: {
             backgroundColor: COLORS.lightWhite,
           },
@@ -30,11 +31,12 @@ const Ibadah = () => {
       <View
         style={{
           flex: 1,
+          padding: 10,
         }}
       >
-        <IbadahComponent />
+        <Request />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
-export default Ibadah;
+export default Loker;

@@ -10,7 +10,7 @@ const AppLayout = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'home') {
+          if (route.name === 'index') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'feed') {
             iconName = focused ? 'albums' : 'albums-outline';
@@ -23,7 +23,7 @@ const AppLayout = () => {
         tabBarLabel: ({ focused, color }) => {
           let labelName;
 
-          if (route.name === 'home') {
+          if (route.name === 'index') {
             labelName = 'Home';
           } else if (route.name === 'feed') {
             labelName = 'Feed';
@@ -41,7 +41,7 @@ const AppLayout = () => {
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tabs.Screen name='home' />
+      <Tabs.Screen name='index' />
       <Tabs.Screen name='feed' />
       <Tabs.Screen name='bookmark' />
     </Tabs>

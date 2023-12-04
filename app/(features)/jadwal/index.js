@@ -1,15 +1,15 @@
 import { SafeAreaView, View } from 'react-native';
-import { COLORS, SIZES, icons } from '../../constants';
+import { COLORS, SIZES, icons } from '../../../constants';
 import { Stack, useRouter } from 'expo-router';
-import JadwalCard from '../../components/common/cards/jadwal/JadwalCard';
-import IconComponent from '../../components/common/icon/IconComponent';
-import Chip from '../../components/common/chip/Chip';
+import JadwalCard from '../../../components/common/cards/jadwal/JadwalCard';
+import IconComponent from '../../../components/common/icon/IconComponent';
+import Chip from '../../../components/common/chip/Chip';
 
 const Jadwal = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <>
       <Stack.Screen
         options={{
           headerTitle: 'Jadwal Kajian',
@@ -38,7 +38,7 @@ const Jadwal = () => {
           <JadwalCard />
         </View>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 export default Jadwal;
