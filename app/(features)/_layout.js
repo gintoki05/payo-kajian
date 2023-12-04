@@ -1,14 +1,20 @@
 import { Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, View } from 'react-native';
 import { COLORS } from '../../constants';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+import { View } from 'react-native';
 
 const Layout = () => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.paleOrange }}>
-      <StatusBar style='auto' />
+    <View style={{ flex: 1, paddingTop: insets.top }}>
+      {/* <StatusBar style='auto' /> */}
       <Slot />
-    </SafeAreaView>
+    </View>
   );
 };
 export default Layout;
