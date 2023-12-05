@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 250,
     borderRadius: SIZES.medium,
-    marginBottom: 20,
+    margin: 15,
   },
   image: {
     borderTopStartRadius: SIZES.medium,

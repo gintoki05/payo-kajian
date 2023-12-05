@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { styles } from './jadwaldetailcomponent.style';
 import { COLORS, SIZES, icons } from '../../../constants';
-import { useRouter, useSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import IconComponent from '../../common/icon/IconComponent';
 import { formatDate } from '../../../utils/date';
 import useFetchById from '../../../hook/useFetchById';
@@ -11,7 +11,7 @@ import * as Sharing from 'expo-sharing';
 
 const JadwalDetailComponent = () => {
   const router = useRouter();
-  const params = useSearchParams();
+  const params = useLocalSearchParams();
 
   // const { data, isLoading, error } = useFetch(
   //   `api/jadwal-kajians/${params.id}`,
@@ -54,7 +54,7 @@ const JadwalDetailComponent = () => {
           <Image
             style={styles.image}
             source={data.gambar}
-            contentFit='cover'
+            contentFit='fill'
             transition={1000}
           />
           <View style={styles.iconLeftContainer}>

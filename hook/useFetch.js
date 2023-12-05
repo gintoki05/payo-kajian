@@ -16,7 +16,10 @@ const useFetch = (endpoint, query) => {
     setIsLoading(true);
 
     try {
-      let supabaseQuery = supabase.from(endpoint).select();
+      let supabaseQuery = supabase
+        .from(endpoint)
+        .select()
+        .order('id', { ascending: false });
 
       if (query && query.range) {
         const [start, end] = query.range;

@@ -1,10 +1,5 @@
 import { Slot } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { COLORS } from '../../constants';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 
 const Layout = () => {

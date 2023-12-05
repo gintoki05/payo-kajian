@@ -8,12 +8,12 @@ import {
 import { styles } from './lokasidetailcomponent.style';
 import { Image } from 'expo-image';
 import { COLORS, SIZES, images } from '../../../constants';
-import { useRouter, useSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import useFetchById from '../../../hook/useFetchById';
 import * as Linking from 'expo-linking';
 
 const LokasiDetailComponent = () => {
-  const params = useSearchParams();
+  const params = useLocalSearchParams();
 
   // const { data, isLoading, error } = useFetch(`api/lokasis/${params.id}`, {
   //   populate: {

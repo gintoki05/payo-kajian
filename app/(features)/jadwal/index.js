@@ -30,13 +30,7 @@ const Jadwal = () => {
 
       <View style={{ rowGap: 10 }}>
         <Chip />
-        <View
-          style={{
-            padding: SIZES.medium,
-          }}
-        >
-          <JadwalCard />
-        </View>
+        <JadwalCard />
       </View>
     </>
   );
