@@ -37,7 +37,7 @@
   "resolutions": {},
   "overrides": {},
   "name": "payo-kajian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "expo-router/entry"
 }

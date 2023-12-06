@@ -57,6 +57,8 @@ const LokasiCard = () => {
         <Text>Tidak ada data</Text>
       ) : (
         <FlatList
+          contentContainerStyle={{ paddingBottom: 50 }}
+          showsVerticalScrollIndicator={false}
           data={data}
           renderItem={({ item }) => <Item item={item} />}
           keyExtractor={(item) => item.id}
