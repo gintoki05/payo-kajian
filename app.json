@@ -25,7 +25,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ajie_prastyo.payokajian"
+      "package": "com.ajie_prastyo.payokajian",
+      "versionCode": 2
     },
     "runtimeVersion": {
       "policy": "appVersion"
