@@ -26,6 +26,12 @@
     },
     "android": {
       "package": "com.ajie_prastyo.payokajian"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/705d00e1-1098-4a1f-b49d-db047526d090"
     }
   }
 }
