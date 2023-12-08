@@ -15,9 +15,6 @@ import { COLORS } from '../../../constants';
 import { formatDate } from '../../../utils/date';
 import useFetchById from '../../../hook/useFetchById';
 import Carousel from 'react-native-reanimated-carousel';
-import * as FileSystem from 'expo-file-system';
-import * as MediaLibrary from 'expo-media-library';
-import { useState } from 'react';
 
 const InfoDetail = () => {
   // const [isDownloading, setIsDownloading] = useState(false);
