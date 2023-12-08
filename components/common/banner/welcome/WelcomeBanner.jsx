@@ -20,7 +20,7 @@ const WelcomeBanner = ({ data }) => {
           style={styles.image}
           source={item.gambar}
           contentFit='cover'
-          transition={2000}
+          transition={2500}
         />
       </View>
     </Pressable>

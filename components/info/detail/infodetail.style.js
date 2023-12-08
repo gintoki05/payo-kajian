@@ -1,14 +1,19 @@
-import { Platform, StatusBar, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZES } from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    borderRadius: SIZES.small,
+    flex: 1,
   },
   image: {
-    flex: 1,
     height: 135,
     width: '100%',
+    backgroundColor: COLORS.gray2,
+    borderRadius: SIZES.small,
+  },
+  imageDeskripsi: {
+    height: 350,
+    marginTop: SIZES.small,
     backgroundColor: COLORS.gray2,
     borderRadius: SIZES.small,
   },
