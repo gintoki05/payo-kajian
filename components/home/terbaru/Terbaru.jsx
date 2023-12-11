@@ -67,7 +67,13 @@ const Terbaru = () => {
         </View>
 
         <View style={styles.infoContainer}>
-          <Text style={styles.judulKajian}>{item.judul}</Text>
+          <Text
+            style={styles.judulKajian}
+            numberOfLines={1}
+            ellipsizeMode='tail'
+          >
+            {item.judul}
+          </Text>
           <Text style={styles.subTitle}>
             {item.pemateri} •{' '}
             {new Date(item.tanggal).toLocaleTimeString('id-ID', {

@@ -55,6 +55,7 @@ export const styles = StyleSheet.create({
     color: COLORS.chineseBlack,
     textTransform: 'uppercase',
     fontFamily: FONT.bold,
+    width: 220,
   },
   subTitle: {
     color: COLORS.mistBlue,
